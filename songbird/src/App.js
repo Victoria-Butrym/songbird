@@ -16,11 +16,22 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <span className="song">
-            Song<span className="bird">bird</span>
-          </span>
-          <Score score={score} />
+          <div className="logo-and-score">
+            <span className="song">
+              Song<span className="bird">bird</span>
+            </span>
+            <Score score={score} />
+          </div>
+          <nav className="header-nav"></nav>
         </header>
+        <main>
+          <section className="current-bird-section"></section>
+          <section className="answers-section">
+            <aside className="answers"></aside>
+            <aside className="current-answer"></aside>
+          </section>
+          <button className="next">Next Level</button>
+        </main>
       </div>
     );
   }
