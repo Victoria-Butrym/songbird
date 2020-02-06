@@ -1,10 +1,28 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import "./App.css";
 import "./header/header.css";
 
-const Score = ({ score }) => {
-  return <span className="score">Score: {score}</span>;
-};
+import Score from "./header/score";
+
+class Answers extends Component {
+  render() {
+    return (
+      <Fragment>
+        <aside className="answers"></aside>
+      </Fragment>
+    );
+  }
+}
+
+class NextLevel extends Component {
+  render() {
+    return <button className="next">Next Level</button>;
+  }
+}
+
+// const Score = ({ score }) => {
+//   return <span className="score">Score: {score}</span>;
+// };
 
 class App extends Component {
   state = {
@@ -27,10 +45,10 @@ class App extends Component {
         <main>
           <section className="current-bird-section"></section>
           <section className="answers-section">
-            <aside className="answers"></aside>
+            <Answers />
             <aside className="current-answer"></aside>
           </section>
-          <button className="next">Next Level</button>
+          <NextLevel />
         </main>
       </div>
     );
