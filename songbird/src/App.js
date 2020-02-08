@@ -7,6 +7,7 @@ import "./assets/answer.css";
 import Score from "./header/score";
 import birdsData from "./data/birds";
 import categories from "./data/categories";
+import Logo from "./header/logo";
 
 const AnswerPlaceholder = () => {
   return (
@@ -15,16 +16,6 @@ const AnswerPlaceholder = () => {
       <br />
       Выберите птицу из списка
     </p>
-  );
-};
-
-const Logo = () => {
-  return (
-    <Fragment>
-      <span className="song">
-        Song<span className="bird">bird</span>
-      </span>
-    </Fragment>
   );
 };
 
