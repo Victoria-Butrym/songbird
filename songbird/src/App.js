@@ -2,10 +2,21 @@ import React, { Component, Fragment } from "react";
 import "./App.css";
 import "./header/header.css";
 import "./assets/categories.css";
+import "./assets/answer.css";
 
 import Score from "./header/score";
 import birdsData from "./data/birds";
 import categories from "./data/categories";
+
+const AnswerPlaceholder = () => {
+  return (
+    <p className="answer-placeholder">
+      Послушайте плеер.
+      <br />
+      Выберите птицу из списка
+    </p>
+  );
+};
 
 const Logo = () => {
   return (
@@ -23,9 +34,20 @@ const Categories = ({ activeCategory }) => {
       <ul className="categories">
         {categories.map(category => {
           if (category === activeCategory) {
-            return <li className="active-category">{category}</li>;
+            return (
+              <li
+                className="active-category"
+                key={categories.indexOf(category)}
+              >
+                {category}
+              </li>
+            );
           }
-          return <li className="category">{category}</li>;
+          return (
+            <li className="category" key={categories.indexOf(category)}>
+              {category}
+            </li>
+          );
         })}
       </ul>
     </nav>
@@ -38,7 +60,7 @@ const createAnswers = props => {
       <ul className="possible-answers">
         {props.map(answer => {
           return (
-            <li className="possible-answer">
+            <li className="possible-answer" key={answer.id}>
               <div className="unactive"></div>
               {answer.name}
             </li>
@@ -63,7 +85,8 @@ class App extends Component {
     next: 1,
     activeCategory: categories[0],
     possibleAnswers: birdsData[0],
-    guessed: false
+    guessed: false,
+    answerChosen: false
   };
 
   nextCategory = () => {
@@ -77,7 +100,7 @@ class App extends Component {
   };
 
   render() {
-    const { score, possibleAnswers, activeCategory } = this.state;
+    const { score, possibleAnswers, activeCategory, answerChosen } = this.state;
     console.log(this.state);
     return (
       <div className="App">
@@ -92,7 +115,9 @@ class App extends Component {
           <section className="current-bird-section"></section>
           <section className="answers-section">
             <aside className="answers">{createAnswers(possibleAnswers)}</aside>
-            <aside className="current-answer"></aside>
+            <aside className="current-answer">
+              {!answerChosen ? <AnswerPlaceholder /> : null}
+            </aside>
           </section>
           <NextLevel onClick={this.nextCategory} />
         </main>
