@@ -70,7 +70,7 @@ const NameAndSound = ({ guessed }) => {
   return (
     <aside className="current-bird_name-sound">
       {guessed ? <h3>guessed</h3> : <h3>******</h3>}
-      <audio></audio>
+      <audio className="current-bird-sound" src="" controls autoPlay />
     </aside>
   );
 };
