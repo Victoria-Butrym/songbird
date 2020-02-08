@@ -1,0 +1,23 @@
+.current-bird-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.current-bird_name-sound {
+  width: 70%;
+  height: 85%;
+  background-color: rgb(54, 54, 54);
+  margin: 0 6rem 0 0;
+}
+
+.current-bird_name-sound h3 {
+  font-size: 3rem;
+  margin-top: 0;
+}
+
+.bird-placeholder {
+  border-radius: 0.5rem;
+  margin: 0 2rem;
+  height: 85%;
+}

@@ -9,6 +9,7 @@ import birdsData from "./data/birds";
 import categories from "./data/categories";
 import Logo from "./header/logo";
 import AnswerPlaceholder from "./placeholders/answer-placeholder";
+import BirdImagePlaceholder from "./placeholders/bird-image";
 
 const Categories = ({ activeCategory }) => {
   return (
@@ -65,6 +66,15 @@ const NextLevel = ({ onClick, guessed }) => {
   );
 };
 
+const NameAndSound = ({ guessed }) => {
+  return (
+    <aside className="current-bird_name-sound">
+      {guessed ? <h3>guessed</h3> : <h3>******</h3>}
+      <audio></audio>
+    </aside>
+  );
+};
+
 class App extends Component {
   state = {
     score: 0,
@@ -104,7 +114,10 @@ class App extends Component {
           <Categories activeCategory={activeCategory} />
         </header>
         <main>
-          <section className="current-bird-section"></section>
+          <section className="current-bird-section">
+            <BirdImagePlaceholder />
+            <NameAndSound guessed={guessed} />
+          </section>
           <section className="answers-section">
             <aside className="answers">{createAnswers(possibleAnswers)}</aside>
             <aside className="current-answer">
