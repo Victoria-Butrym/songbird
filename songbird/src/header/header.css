@@ -75,6 +75,35 @@
   border: 0.1rem solid #505050;
 }
 
+.possible-answers {
+  padding: 0;
+  margin: 0;
+}
+
+.possible-answer {
+  width: calc(100% - 2rem);
+  height: 4.9rem;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 0.1rem solid #505050;
+  padding-left: 2rem;
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.possible-answer:last-child {
+  border: 0;
+  height: 5rem;
+}
+
+.possible-answer:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #505050;
+}
+
 .active {
   background-color: #9e6c3e;
   cursor: pointer;
