@@ -98,6 +98,30 @@
   height: 5rem;
 }
 
+.wrong {
+  width: 1rem;
+  height: 1rem;
+  background-color: red;
+  margin-right: 2rem;
+  border-radius: 50%;
+}
+
+.correct {
+  width: 1rem;
+  height: 1rem;
+  background-color: greenyellow;
+  margin-right: 2rem;
+  border-radius: 50%;
+}
+
+.unactive {
+  width: 1rem;
+  height: 1rem;
+  background-color: #505050;
+  margin-right: 2rem;
+  border-radius: 50%;
+}
+
 .possible-answer:hover {
   cursor: pointer;
   transition: 0.2s;
