@@ -8,16 +8,7 @@ import Score from "./header/score";
 import birdsData from "./data/birds";
 import categories from "./data/categories";
 import Logo from "./header/logo";
-
-const AnswerPlaceholder = () => {
-  return (
-    <p className="answer-placeholder">
-      Послушайте плеер.
-      <br />
-      Выберите птицу из списка
-    </p>
-  );
-};
+import AnswerPlaceholder from "./placeholders/answer-placeholder";
 
 const Categories = ({ activeCategory }) => {
   return (
@@ -62,8 +53,12 @@ const createAnswers = props => {
   );
 };
 
-const NextLevel = ({ onClick }) => {
-  return (
+const NextLevel = ({ onClick, guessed }) => {
+  return guessed ? (
+    <button onClick={onClick} className="active-next">
+      Next Level
+    </button>
+  ) : (
     <button onClick={onClick} className="next">
       Next Level
     </button>
@@ -91,8 +86,14 @@ class App extends Component {
   };
 
   render() {
-    const { score, possibleAnswers, activeCategory, answerChosen } = this.state;
-    console.log(this.state);
+    const {
+      score,
+      possibleAnswers,
+      activeCategory,
+      answerChosen,
+      guessed
+    } = this.state;
+
     return (
       <div className="App">
         <header className="App-header">
@@ -110,7 +111,7 @@ class App extends Component {
               {!answerChosen ? <AnswerPlaceholder /> : null}
             </aside>
           </section>
-          <NextLevel onClick={this.nextCategory} />
+          <NextLevel onClick={this.nextCategory} guessed={guessed} />
         </main>
       </div>
     );
