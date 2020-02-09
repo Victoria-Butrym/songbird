@@ -15,11 +15,30 @@
   height: 4rem;
 }
 
+.rhap_container {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+}
+
+.rhap_additional-controls {
+  display: none;
+}
+
+.toggle-play-button {
+  background-color: red !important;
+}
+
+.current-bird-sound:focus {
+  outline: 0;
+}
+
 .current-bird_name-sound h3 {
   font-size: 3rem;
   margin-top: 0;
   width: 100%;
   border-bottom: 0.1rem solid #505050;
+  padding-bottom: 1rem;
 }
 
 .bird-placeholder {

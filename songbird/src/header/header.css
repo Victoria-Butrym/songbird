@@ -153,6 +153,12 @@
   color: #fff;
 }
 
+.active-next:focus,
 .next:focus {
   outline: 0;
+}
+
+.active-next:hover {
+  background-color: #c79a63;
+  transition: 0.2s;
 }
