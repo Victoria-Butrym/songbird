@@ -188,7 +188,11 @@ class App extends Component {
         </header>
         <main>
           <section className="current-bird-section">
-            <BirdImagePlaceholder picture={bird} />
+            <BirdImagePlaceholder
+              picture={bird}
+              correctPicture={correctAnswer.image}
+              guessed={guessed}
+            />
             <NameAndSound guessed={guessed} correctAnswer={correctAnswer} />
           </section>
           <section className="answers-section">

@@ -2,10 +2,12 @@ import React, { Fragment } from "react";
 
 import "../assets/current-bird.css";
 
-const BirdImagePlaceholder = ({ picture }) => {
+const BirdImagePlaceholder = ({ picture, correctPicture, guessed }) => {
+  let src;
+  guessed ? (src = correctPicture) : (src = picture);
   return (
     <Fragment>
-      <img src={picture} alt="bird" className="bird-placeholder" />
+      <img src={src} alt="bird" className="bird-placeholder" />
     </Fragment>
   );
 };
