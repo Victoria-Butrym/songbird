@@ -82,7 +82,7 @@ const NameAndSound = ({ guessed, correctAnswer }) => {
       {guessed ? <h2>{correctAnswer.name}</h2> : <h2>******</h2>}
       <audio
         className="current-bird-sound"
-        src={birdsData[0][0].audio}
+        src={correctAnswer.audio}
         controls
       />
     </aside>
@@ -112,6 +112,10 @@ const CurrentAnswerData = ({ currentAnswer }) => {
 };
 
 class App extends Component {
+  setRandomBird = category => {
+    return category[Math.floor(Math.random() * category.length)];
+  };
+
   state = {
     score: 0,
     next: 1,
@@ -119,7 +123,7 @@ class App extends Component {
     possibleAnswers: birdsData[0],
     guessed: false,
     answerChosen: false,
-    correctAnswer: birdsData[0][2],
+    correctAnswer: this.setRandomBird(birdsData[0]),
     currentAnswer: null
   };
 
@@ -158,7 +162,7 @@ class App extends Component {
       next: next + 1,
       guessed: false,
       answerChosen: false,
-      correctAnswer: birdsData[next][2]
+      correctAnswer: this.setRandomBird(birdsData[next])
     });
   };
 
