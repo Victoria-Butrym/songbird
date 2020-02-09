@@ -11,6 +11,12 @@
   align-items: center;
 }
 
+@media screen and (max-width: 1000px) {
+  .App-header {
+    height: 16rem;
+  }
+}
+
 .logo-and-score {
   display: flex;
   justify-content: space-between;
@@ -34,9 +40,33 @@
 
 .header-nav {
   width: 100%;
-  height: 3.5rem;
+  min-height: 3.5rem;
   border-radius: 0.5rem;
   background-color: #9e6c3e;
+}
+
+@media screen and (max-width: 1169px) {
+  .header-nav {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .header-nav {
+    flex-wrap: wrap;
+    height: 7rem;
+  }
+}
+
+@media screen and (max-width: 499px) {
+  .App-header {
+    height: 18rem;
+  }
+
+  .header-nav {
+    flex-wrap: wrap;
+    height: 10.5rem;
+  }
 }
 
 /*current-bird-------------------*/
@@ -140,6 +170,30 @@
   color: #fff;
 }
 
+@media screen and (max-width: 1169px) {
+  .current-answer,
+  .answers {
+    width: 48.5%;
+  }
+}
+
+@media screen and (max-width: 1010px) {
+  .current-answer,
+  .answers {
+    width: 100%;
+  }
+
+  .answers {
+    margin-bottom: 2.5rem;
+  }
+
+  .answers-section {
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 64rem;
+  }
+}
+
 .next {
   width: 100%;
   height: 3.5rem;
@@ -160,4 +214,11 @@
 .active-next:hover {
   background-color: #c79a63;
   transition: 0.2s;
+}
+
+@media screen and (max-width: 1169px) {
+  .next,
+  .active-next {
+    margin-bottom: 2.5rem;
+  }
 }

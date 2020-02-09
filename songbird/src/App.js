@@ -23,7 +23,7 @@ const Categories = ({ activeCategory }) => {
           if (category === activeCategory) {
             return (
               <li
-                className="active-category"
+                className="category active-cat"
                 key={categories.indexOf(category)}
               >
                 {category}
@@ -41,7 +41,9 @@ const Categories = ({ activeCategory }) => {
   );
 };
 
-const Answers = ({ possibleAnswers, onClick }) => {
+const Answers = ({ possibleAnswers, onClick, guessed }) => {
+  let statusClass;
+  guessed ? (statusClass = "correct") : (statusClass = "wrong");
   return (
     <Fragment>
       <ul className="possible-answers">
@@ -54,6 +56,7 @@ const Answers = ({ possibleAnswers, onClick }) => {
               onClick={onClick}
               data-name={answer.name}
             >
+              {/* <div className={statusClass}></div> */}
               <div className="unactive"></div>
               {answer.name}
             </li>
@@ -208,6 +211,7 @@ class App extends Component {
               <Answers
                 possibleAnswers={possibleAnswers}
                 onClick={this.chooseAnswer}
+                guessed={guessed}
               />
             </aside>
             <aside className="current-answer">
@@ -227,4 +231,4 @@ class App extends Component {
 
 export default App;
 
-// TODO: 2) score 3) responsive 4) modal window 6) custom player 7) custom bird data
+// TODO: 2) toggle answer status 3) responsive 4) modal window 6) custom player 7) custom bird data
