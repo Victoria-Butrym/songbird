@@ -6,6 +6,8 @@ import "./header/header.css";
 import "./assets/categories.css";
 import "./assets/answer.css";
 
+import bird from "./assets/bird.06a46938.jpg";
+
 import Score from "./header/score";
 import birdsData from "./data/birds";
 import categories from "./data/categories";
@@ -77,13 +79,35 @@ const NextLevel = ({ onClick, guessed }) => {
 const NameAndSound = ({ guessed, correctAnswer }) => {
   return (
     <aside className="current-bird_name-sound">
-      {guessed ? <h3>{correctAnswer.name}</h3> : <h3>******</h3>}
+      {guessed ? <h2>{correctAnswer.name}</h2> : <h2>******</h2>}
       <audio
         className="current-bird-sound"
         src={birdsData[0][0].audio}
         controls
       />
     </aside>
+  );
+};
+
+const CurrentAnswerData = ({ currentAnswer }) => {
+  return (
+    <Fragment>
+      <section className="bird-info">
+        <BirdImagePlaceholder picture={currentAnswer.image} />
+        <aside className="bird-names">
+          <h3 className="current-answer_bird-name_ru">{currentAnswer.name}</h3>
+          <h4 className="current-answer_bird-name_latin">
+            {currentAnswer.species}
+          </h4>
+          <audio
+            className="current-bird-sound"
+            src={currentAnswer.audio}
+            controls
+          />
+        </aside>
+      </section>
+      <p className="bird-description">{currentAnswer.description}</p>
+    </Fragment>
   );
 };
 
@@ -95,13 +119,12 @@ class App extends Component {
     possibleAnswers: birdsData[0],
     guessed: false,
     answerChosen: false,
-    correctAnswer: birdsData[0][2]
+    correctAnswer: birdsData[0][2],
+    currentAnswer: null
   };
 
-  chooseAnswer = e => {
-    const answer = e.target.dataset.name;
-    const { correctAnswer } = this.state;
-    answer === correctAnswer.name
+  isGuessed = (answer, correct) => {
+    answer === correct.name
       ? this.setState({
           guessed: true
         })
@@ -110,14 +133,31 @@ class App extends Component {
         });
   };
 
+  chooseAnswer = e => {
+    const answer = e.target.dataset.name;
+    const { correctAnswer, guessed } = this.state;
+
+    if (guessed) return;
+
+    this.setState({
+      answerChosen: true,
+      currentAnswer: this.state.possibleAnswers[e.target.id - 1]
+    });
+
+    this.isGuessed(answer, correctAnswer);
+  };
+
   nextCategory = () => {
     const { next, guessed } = this.state;
+
     if (next === 6 || !guessed) return;
+
     this.setState({
       possibleAnswers: birdsData[next],
       activeCategory: categories[next],
       next: next + 1,
       guessed: false,
+      answerChosen: false,
       correctAnswer: birdsData[next][2]
     });
   };
@@ -129,7 +169,8 @@ class App extends Component {
       activeCategory,
       answerChosen,
       guessed,
-      correctAnswer
+      correctAnswer,
+      currentAnswer
     } = this.state;
 
     return (
@@ -143,7 +184,7 @@ class App extends Component {
         </header>
         <main>
           <section className="current-bird-section">
-            <BirdImagePlaceholder />
+            <BirdImagePlaceholder picture={bird} />
             <NameAndSound guessed={guessed} correctAnswer={correctAnswer} />
           </section>
           <section className="answers-section">
@@ -154,7 +195,11 @@ class App extends Component {
               />
             </aside>
             <aside className="current-answer">
-              {!answerChosen ? <AnswerPlaceholder /> : null}
+              {!answerChosen ? (
+                <AnswerPlaceholder />
+              ) : (
+                <CurrentAnswerData currentAnswer={currentAnswer} />
+              )}
             </aside>
           </section>
           <NextLevel onClick={this.nextCategory} guessed={guessed} />
@@ -166,4 +211,4 @@ class App extends Component {
 
 export default App;
 
-// TODO: check correctAnswer prop
+// TODO: 1) random bird 2) score 3) responsive 4) modal window 5) set data according to current answer 6) custom player 7) custom bird data

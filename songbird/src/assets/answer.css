@@ -3,3 +3,41 @@
   margin-left: 1.2rem;
   line-height: 2.2rem;
 }
+
+.current-answer_bird-name_ru {
+  font-size: 2.2rem;
+  margin: 0;
+  border-bottom: 0.1rem solid #505050;
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+.current-answer_bird-name_latin {
+  border-bottom: 0.1rem solid #505050;
+  width: 100%;
+  padding-bottom: 0.8rem;
+  font-size: 1.8rem;
+  margin: 0.5rem 0 0 0;
+  font-weight: lighter;
+  margin-bottom: 2rem;
+}
+
+.bird-info {
+  display: flex;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.latin {
+  font-size: 1rem;
+}
+
+.bird-names {
+  width: 50%;
+  margin-left: 0.5rem;
+}
+
+.bird-description {
+  margin: 2rem 2rem 0 2rem;
+  font-size: 1.4rem;
+}

@@ -67,10 +67,9 @@
 }
 
 .current-answer {
-  width: 53rem;
+  width: 51rem;
   height: 100%;
   background-color: #333;
-  /* background-color: #555; */
   border-radius: 0.5rem;
   border: 0.1rem solid #505050;
 }
