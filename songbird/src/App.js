@@ -39,7 +39,7 @@ const Categories = ({ activeCategory }) => {
   );
 };
 
-const CreateAnswers = ({ possibleAnswers, onClick }) => {
+const Answers = ({ possibleAnswers, onClick }) => {
   return (
     <Fragment>
       <ul className="possible-answers">
@@ -148,7 +148,7 @@ class App extends Component {
           </section>
           <section className="answers-section">
             <aside className="answers">
-              <CreateAnswers
+              <Answers
                 possibleAnswers={possibleAnswers}
                 onClick={this.chooseAnswer}
               />
