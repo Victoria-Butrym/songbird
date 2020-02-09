@@ -118,6 +118,7 @@ class App extends Component {
 
   state = {
     score: 0,
+    currentScore: 5,
     next: 1,
     activeCategory: categories[0],
     possibleAnswers: birdsData[0],
@@ -128,9 +129,15 @@ class App extends Component {
   };
 
   isGuessed = (answer, correct) => {
+    const { currentScore, score } = this.state;
+
+    if (currentScore < 0) return;
+
     answer === correct.name
       ? this.setState({
-          guessed: true
+          guessed: true,
+          score: score + currentScore,
+          currentScore: 5
         })
       : this.setState({
           guessed: false
@@ -139,13 +146,14 @@ class App extends Component {
 
   chooseAnswer = e => {
     const answer = e.target.dataset.name;
-    const { correctAnswer, guessed } = this.state;
+    const { correctAnswer, guessed, currentScore } = this.state;
 
     if (guessed) return;
 
     this.setState({
       answerChosen: true,
-      currentAnswer: this.state.possibleAnswers[e.target.id - 1]
+      currentAnswer: this.state.possibleAnswers[e.target.id - 1],
+      currentScore: currentScore - 1
     });
 
     this.isGuessed(answer, correctAnswer);
