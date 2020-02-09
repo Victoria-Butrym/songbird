@@ -112,7 +112,7 @@ const CurrentAnswerData = ({ currentAnswer }) => {
 };
 
 class App extends Component {
-  setRandomBird = category => {
+  getRandomBird = category => {
     return category[Math.floor(Math.random() * category.length)];
   };
 
@@ -123,7 +123,7 @@ class App extends Component {
     possibleAnswers: birdsData[0],
     guessed: false,
     answerChosen: false,
-    correctAnswer: this.setRandomBird(birdsData[0]),
+    correctAnswer: this.getRandomBird(birdsData[0]),
     currentAnswer: null
   };
 
@@ -162,7 +162,7 @@ class App extends Component {
       next: next + 1,
       guessed: false,
       answerChosen: false,
-      correctAnswer: this.setRandomBird(birdsData[next])
+      correctAnswer: this.getRandomBird(birdsData[next])
     });
   };
 
@@ -215,4 +215,4 @@ class App extends Component {
 
 export default App;
 
-// TODO: 1) random bird 2) score 3) responsive 4) modal window 5) set data according to current answer 6) custom player 7) custom bird data
+// TODO: 2) score 3) responsive 4) modal window 6) custom player 7) custom bird data
