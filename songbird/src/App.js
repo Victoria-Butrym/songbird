@@ -8,6 +8,8 @@ import "./assets/answer.css";
 import "./assets/modal-window.css";
 
 import bird from "./assets/bird.06a46938.jpg";
+import wrongSound from "./data/sounds/wrong.mp3";
+import correctSound from "./data/sounds/correct.mp3";
 
 import Score from "./header/score";
 import birdsData from "./data/birds";
@@ -151,12 +153,17 @@ class App extends Component {
     answerChosen: false,
     correctAnswer: this.getRandomBird(birdsData[0]),
     currentAnswer: null,
-    gameEnded: true
+    gameEnded: false
   };
 
   answersSectionRef = React.createRef();
   nextLevelRef = React.createRef();
   correctBirdSectionRef = React.createRef();
+
+  guessed = (answer, current) => {
+    // console.log(this.state.guessed);
+    return answer === current.name;
+  };
 
   isGuessed = (answer, correct) => {
     const { currentScore, score } = this.state;
@@ -201,21 +208,36 @@ class App extends Component {
       : (e.target.firstChild.className = "wrong");
   };
 
+  clickSound = () => {
+    const sound = new Audio();
+
+    // console.log(this.state.guessed);
+
+    this.state.guessed ? (sound.src = correctSound) : (sound.src = wrongSound);
+    sound.play();
+  };
+
   chooseAnswer = e => {
     const answer = e.target.dataset.name;
     const { correctAnswer, guessed, currentScore } = this.state;
 
+    this.clickSound();
+
     // if (guessed) return;
 
-    // this.changeAnswerStatus(e);
+    this.changeAnswerStatus(e);
 
     this.setState({
       answerChosen: true,
       currentAnswer: this.state.possibleAnswers[e.target.id - 1],
-      currentScore: currentScore - 1
+      currentScore: currentScore - 1,
+      guessed: true
     });
 
+    console.log(guessed);
+
     this.isGuessed(answer, correctAnswer);
+    // this.guessed(answer, correctAnswer);
   };
 
   showModalWindow = () => {
@@ -312,4 +334,4 @@ class App extends Component {
 
 export default App;
 
-// TODO: 2) toggle answer status 3) responsive 4) modal window 6) custom player 7) custom bird data 8) sound indication
+// TODO: 2) toggle answer status 3) responsive 6) custom player 7) custom bird data
