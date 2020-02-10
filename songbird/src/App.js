@@ -5,6 +5,7 @@ import "./App.css";
 import "./header/header.css";
 import "./assets/categories.css";
 import "./assets/answer.css";
+import "./assets/modal-window.css";
 
 import bird from "./assets/bird.06a46938.jpg";
 
@@ -67,14 +68,29 @@ const Answers = ({ possibleAnswers, onClick, guessed }) => {
   );
 };
 
-const NextLevel = ({ onClick, guessed }) => {
+const ModalWindow = ({ score }) => {
+  return (
+    <Fragment>
+      <section className="modal-window">
+        <h2 className="congrats">Поздравляем!</h2>
+        <span className="result">
+          Вы прошли викторину и набрали <strong>{score}</strong> из{" "}
+          <strong>30</strong> баллов!
+        </span>
+        <NextLevel guessed={true} text="Играть снова" />
+      </section>
+    </Fragment>
+  );
+};
+
+const NextLevel = ({ onClick, guessed, text }) => {
   return guessed ? (
     <button onClick={onClick} className="active-next">
-      Next Level
+      {text}
     </button>
   ) : (
     <button onClick={onClick} className="next">
-      Next Level
+      {text}
     </button>
   );
 };
@@ -128,8 +144,13 @@ class App extends Component {
     guessed: false,
     answerChosen: false,
     correctAnswer: this.getRandomBird(birdsData[0]),
-    currentAnswer: null
+    currentAnswer: null,
+    gameEnded: false
   };
+
+  answersSectionRef = React.createRef();
+  nextLevelRef = React.createRef();
+  correctBirdSectionRef = React.createRef();
 
   isGuessed = (answer, correct) => {
     const { currentScore, score } = this.state;
@@ -147,11 +168,25 @@ class App extends Component {
         });
   };
 
+  changeAnswerStatus = e => {
+    const { guessed, correctAnswer } = this.state;
+
+    if (guessed) return;
+
+    const answer = e.target.dataset.name;
+
+    answer === correctAnswer.name
+      ? (e.target.firstChild.className = "correct")
+      : (e.target.firstChild.className = "wrong");
+  };
+
   chooseAnswer = e => {
     const answer = e.target.dataset.name;
     const { correctAnswer, guessed, currentScore } = this.state;
 
-    if (guessed) return;
+    // if (guessed) return;
+
+    // this.changeAnswerStatus(e);
 
     this.setState({
       answerChosen: true,
@@ -162,8 +197,20 @@ class App extends Component {
     this.isGuessed(answer, correctAnswer);
   };
 
+  showModalWindow = () => {
+    this.setState({
+      gameEnded: true
+    });
+
+    console.log(this.state.gameEnded);
+
+    this.answersSectionRef.current.style.display = "none";
+    this.correctBirdSectionRef.current.style.display = "none";
+  };
+
   nextCategory = () => {
     const { next, guessed } = this.state;
+    if (next === 6) this.showModalWindow();
 
     if (next === 6 || !guessed) return;
 
@@ -197,8 +244,13 @@ class App extends Component {
           </div>
           <Categories activeCategory={activeCategory} />
         </header>
-        <main>
-          <section className="current-bird-section">
+
+        <ModalWindow score={score} />
+        {/* <main>
+          <section
+            ref={this.correctBirdSectionRef}
+            className="current-bird-section"
+          >
             <BirdImagePlaceholder
               picture={bird}
               correctPicture={correctAnswer.image}
@@ -206,7 +258,7 @@ class App extends Component {
             />
             <NameAndSound guessed={guessed} correctAnswer={correctAnswer} />
           </section>
-          <section className="answers-section">
+          <section ref={this.answersSectionRef} className="answers-section">
             <aside className="answers">
               <Answers
                 possibleAnswers={possibleAnswers}
@@ -222,8 +274,8 @@ class App extends Component {
               )}
             </aside>
           </section>
-          <NextLevel onClick={this.nextCategory} guessed={guessed} />
-        </main>
+          <NextLevel onClick={this.nextCategory} guessed={guessed} text={Next Level}/>
+        </main> */}
       </div>
     );
   }
@@ -231,4 +283,4 @@ class App extends Component {
 
 export default App;
 
-// TODO: 2) toggle answer status 3) responsive 4) modal window 6) custom player 7) custom bird data
+// TODO: 2) toggle answer status 3) responsive 4) modal window 6) custom player 7) custom bird data 8) sound indication

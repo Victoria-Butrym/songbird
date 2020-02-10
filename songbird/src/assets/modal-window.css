@@ -1,0 +1,27 @@
+.modal-window {
+  width: 90%;
+  padding: 0 5%;
+  height: 50%;
+  background-color: #333;
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.congrats {
+  margin: 1rem 0 2rem 0;
+  font-size: 5.5rem;
+  font-weight: lighter;
+}
+
+.result {
+  font-size: 2rem;
+  width: 100%;
+  border-bottom: 0.1rem solid #272727;
+  text-align: center;
+  padding-bottom: 3rem;
+  font-weight: lighter;
+}
