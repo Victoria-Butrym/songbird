@@ -199,21 +199,23 @@ class App extends Component {
   changeAnswerStatus = e => {
     const { guessed, correctAnswer } = this.state;
 
-    if (guessed) return;
+    // if (guessed) return;
 
     const answer = e.target.dataset.name;
 
-    answer === correctAnswer.name
+    this.guessed(answer, correctAnswer)
       ? (e.target.firstChild.className = "correct")
       : (e.target.firstChild.className = "wrong");
   };
 
-  clickSound = () => {
+  clickSound = (answer, correct) => {
     const sound = new Audio();
 
     // console.log(this.state.guessed);
 
-    this.state.guessed ? (sound.src = correctSound) : (sound.src = wrongSound);
+    this.guessed(answer, correct)
+      ? (sound.src = correctSound)
+      : (sound.src = wrongSound);
     sound.play();
   };
 
@@ -221,7 +223,7 @@ class App extends Component {
     const answer = e.target.dataset.name;
     const { correctAnswer, guessed, currentScore } = this.state;
 
-    this.clickSound();
+    this.clickSound(answer, correctAnswer);
 
     // if (guessed) return;
 
