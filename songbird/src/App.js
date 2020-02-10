@@ -69,10 +69,16 @@ const Answers = ({ possibleAnswers, onClick, guessed }) => {
 };
 
 const ModalWindow = ({ score }) => {
+  let congratsMessage;
+
+  score === 30
+    ? (congratsMessage = "Абсолютная победа!")
+    : (congratsMessage = "Поздравляем!");
+
   return (
     <Fragment>
       <section className="modal-window">
-        <h2 className="congrats">Поздравляем!</h2>
+        <h2 className="congrats">{congratsMessage}</h2>
         <span className="result">
           Вы прошли викторину и набрали <strong>{score}</strong> из{" "}
           <strong>30</strong> баллов!
@@ -232,7 +238,8 @@ class App extends Component {
       answerChosen,
       guessed,
       correctAnswer,
-      currentAnswer
+      currentAnswer,
+      gameEnded
     } = this.state;
 
     return (
@@ -245,37 +252,44 @@ class App extends Component {
           <Categories activeCategory={activeCategory} />
         </header>
 
-        <ModalWindow score={score} />
-        {/* <main>
-          <section
-            ref={this.correctBirdSectionRef}
-            className="current-bird-section"
-          >
-            <BirdImagePlaceholder
-              picture={bird}
-              correctPicture={correctAnswer.image}
-              guessed={guessed}
-            />
-            <NameAndSound guessed={guessed} correctAnswer={correctAnswer} />
-          </section>
-          <section ref={this.answersSectionRef} className="answers-section">
-            <aside className="answers">
-              <Answers
-                possibleAnswers={possibleAnswers}
-                onClick={this.chooseAnswer}
+        {gameEnded ? (
+          <ModalWindow score={score} />
+        ) : (
+          <main>
+            <section
+              ref={this.correctBirdSectionRef}
+              className="current-bird-section"
+            >
+              <BirdImagePlaceholder
+                picture={bird}
+                correctPicture={correctAnswer.image}
                 guessed={guessed}
               />
-            </aside>
-            <aside className="current-answer">
-              {!answerChosen ? (
-                <AnswerPlaceholder />
-              ) : (
-                <CurrentAnswerData currentAnswer={currentAnswer} />
-              )}
-            </aside>
-          </section>
-          <NextLevel onClick={this.nextCategory} guessed={guessed} text={Next Level}/>
-        </main> */}
+              <NameAndSound guessed={guessed} correctAnswer={correctAnswer} />
+            </section>
+            <section ref={this.answersSectionRef} className="answers-section">
+              <aside className="answers">
+                <Answers
+                  possibleAnswers={possibleAnswers}
+                  onClick={this.chooseAnswer}
+                  guessed={guessed}
+                />
+              </aside>
+              <aside className="current-answer">
+                {!answerChosen ? (
+                  <AnswerPlaceholder />
+                ) : (
+                  <CurrentAnswerData currentAnswer={currentAnswer} />
+                )}
+              </aside>
+            </section>
+            <NextLevel
+              onClick={this.nextCategory}
+              guessed={guessed}
+              text="Next Level"
+            />
+          </main>
+        )}
       </div>
     );
   }
