@@ -68,7 +68,7 @@ const Answers = ({ possibleAnswers, onClick, guessed }) => {
   );
 };
 
-const ModalWindow = ({ score }) => {
+const ModalWindow = ({ score, onClick }) => {
   let congratsMessage;
 
   score === 30
@@ -83,7 +83,7 @@ const ModalWindow = ({ score }) => {
           Вы прошли викторину и набрали <strong>{score}</strong> из{" "}
           <strong>30</strong> баллов!
         </span>
-        <NextLevel guessed={true} text="Играть снова" />
+        <NextLevel guessed={true} text="Играть снова" onClick={onClick} />
       </section>
     </Fragment>
   );
@@ -151,7 +151,7 @@ class App extends Component {
     answerChosen: false,
     correctAnswer: this.getRandomBird(birdsData[0]),
     currentAnswer: null,
-    gameEnded: false
+    gameEnded: true
   };
 
   answersSectionRef = React.createRef();
@@ -172,6 +172,21 @@ class App extends Component {
       : this.setState({
           guessed: false
         });
+  };
+
+  playAgain = () => {
+    this.setState({
+      score: 0,
+      currentScore: 5,
+      next: 1,
+      activeCategory: categories[0],
+      possibleAnswers: birdsData[0],
+      guessed: false,
+      answerChosen: false,
+      correctAnswer: this.getRandomBird(birdsData[0]),
+      currentAnswer: null,
+      gameEnded: false
+    });
   };
 
   changeAnswerStatus = e => {
@@ -253,7 +268,7 @@ class App extends Component {
         </header>
 
         {gameEnded ? (
-          <ModalWindow score={score} />
+          <ModalWindow score={score} onClick={this.playAgain} />
         ) : (
           <main>
             <section
