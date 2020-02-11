@@ -41,3 +41,34 @@
   margin: 2rem 2rem 0 2rem;
   font-size: 1.4rem;
 }
+
+@media screen and (max-width: 570px) {
+  .answer-section {
+    height: 75rem;
+  }
+
+  .current-answer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .bird-info {
+    display: flex;
+    flex-direction: column;
+    height: 28.5rem;
+    justify-content: center;
+  }
+
+  .bird-placeholder {
+    width: 25rem;
+  }
+
+  .bird-names {
+    width: 90%;
+  }
+
+  .bird-description {
+    margin-bottom: 2rem;
+  }
+}

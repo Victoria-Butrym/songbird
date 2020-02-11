@@ -15,20 +15,6 @@
   height: 4rem;
 }
 
-.rhap_container {
-  width: 100%;
-  height: 4rem;
-  display: flex;
-}
-
-.rhap_additional-controls {
-  display: none;
-}
-
-.toggle-play-button {
-  background-color: red !important;
-}
-
 .current-bird-sound:focus {
   outline: 0;
 }

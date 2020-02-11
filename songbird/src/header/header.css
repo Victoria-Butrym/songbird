@@ -58,7 +58,7 @@
   }
 }
 
-@media screen and (max-width: 499px) {
+@media screen and (max-width: 516px) {
   .App-header {
     height: 18rem;
   }
@@ -77,6 +77,15 @@
   background-color: #333;
   border-radius: 0.5rem;
   margin: 2.5rem 0;
+}
+
+@media screen and (max-width: 620px) {
+  .current-bird-section {
+    display: flex;
+    flex-direction: column;
+    height: 28.5rem;
+    justify-content: center;
+  }
 }
 
 /*answers------------*/

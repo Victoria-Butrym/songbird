@@ -1,11 +1,13 @@
 import React, { Component, Fragment } from "react";
-// import AudioPlayer from "react-h5-audio-player";
+import AudioPlayer from "react-h5-audio-player";
 
 import "./App.css";
 import "./header/header.css";
 import "./assets/categories.css";
 import "./assets/answer.css";
 import "./assets/modal-window.css";
+import "react-h5-audio-player/lib/styles.css";
+import "./assets/audio-player.css";
 
 import bird from "./assets/bird.06a46938.jpg";
 import wrongSound from "./data/sounds/wrong.mp3";
@@ -44,9 +46,17 @@ const Categories = ({ activeCategory }) => {
   );
 };
 
-const Answers = ({ possibleAnswers, onClick, guessed }) => {
+const Answers = ({
+  possibleAnswers,
+  onClick,
+  guessed,
+  defaultStatus,
+  answerChosen
+}) => {
   let statusClass;
-  guessed ? (statusClass = "correct") : (statusClass = "wrong");
+  // guessed ? (statusClass = "correct") : (statusClass = "unactive");
+  // !answerChosen ? (statusClass = "unactive") : return;
+
   return (
     <Fragment>
       <ul className="possible-answers">
@@ -59,8 +69,8 @@ const Answers = ({ possibleAnswers, onClick, guessed }) => {
               onClick={onClick}
               data-name={answer.name}
             >
-              {/* <div className={statusClass}></div> */}
-              <div className="unactive"></div>
+              <div className={defaultStatus}></div>
+              {/* <div className="unactive"></div> */}
               {answer.name}
             </li>
           );
@@ -107,9 +117,10 @@ const NameAndSound = ({ guessed, correctAnswer }) => {
   return (
     <aside className="current-bird_name-sound">
       {guessed ? <h2>{correctAnswer.name}</h2> : <h2>******</h2>}
-      <audio
+      <AudioPlayer
         className="current-bird-sound"
         src={correctAnswer.audio}
+        autoPlayAfterSrcChange={false}
         controls
       />
     </aside>
@@ -126,7 +137,7 @@ const CurrentAnswerData = ({ currentAnswer }) => {
           <h4 className="current-answer_bird-name_latin">
             {currentAnswer.species}
           </h4>
-          <audio
+          <AudioPlayer
             className="current-bird-sound"
             src={currentAnswer.audio}
             controls
@@ -143,45 +154,7 @@ class App extends Component {
     return category[Math.floor(Math.random() * category.length)];
   };
 
-  state = {
-    score: 0,
-    currentScore: 5,
-    next: 1,
-    activeCategory: categories[0],
-    possibleAnswers: birdsData[0],
-    guessed: false,
-    answerChosen: false,
-    correctAnswer: this.getRandomBird(birdsData[0]),
-    currentAnswer: null,
-    gameEnded: false
-  };
-
-  answersSectionRef = React.createRef();
-  nextLevelRef = React.createRef();
-  correctBirdSectionRef = React.createRef();
-
-  guessed = (answer, current) => {
-    // console.log(this.state.guessed);
-    return answer === current.name;
-  };
-
-  isGuessed = (answer, correct) => {
-    const { currentScore, score } = this.state;
-
-    if (currentScore < 0) return;
-
-    answer === correct.name
-      ? this.setState({
-          guessed: true,
-          score: score + currentScore,
-          currentScore: 5
-        })
-      : this.setState({
-          guessed: false
-        });
-  };
-
-  playAgain = () => {
+  setDefaultState = () => {
     this.setState({
       score: 0,
       currentScore: 5,
@@ -194,6 +167,48 @@ class App extends Component {
       currentAnswer: null,
       gameEnded: false
     });
+  };
+
+  state = {
+    score: 0,
+    currentScore: 5,
+    next: 1,
+    activeCategory: categories[0],
+    possibleAnswers: birdsData[0],
+    guessed: false,
+    answerChosen: false,
+    correctAnswer: this.getRandomBird(birdsData[0]),
+    currentAnswer: null,
+    gameEnded: false,
+    defaultStatus: "unactive"
+  };
+
+  answersSectionRef = React.createRef();
+  nextLevelRef = React.createRef();
+  correctBirdSectionRef = React.createRef();
+
+  guessed = (answer, current) => {
+    return answer === current.name;
+  };
+
+  isGuessed = (answer, correct) => {
+    const { currentScore, score } = this.state;
+
+    if (currentScore < 0) return;
+
+    answer === correct.name
+      ? this.setState({
+          guessed: true,
+          score: score + currentScore,
+          currentScore: 0
+        })
+      : this.setState({
+          guessed: false
+        });
+  };
+
+  playAgain = () => {
+    this.setDefaultState();
   };
 
   changeAnswerStatus = e => {
@@ -239,7 +254,6 @@ class App extends Component {
     console.log(guessed);
 
     this.isGuessed(answer, correctAnswer);
-    // this.guessed(answer, correctAnswer);
   };
 
   showModalWindow = () => {
@@ -247,7 +261,7 @@ class App extends Component {
       gameEnded: true
     });
 
-    console.log(this.state.gameEnded);
+    // console.log(this.state.gameEnded);
 
     this.answersSectionRef.current.style.display = "none";
     this.correctBirdSectionRef.current.style.display = "none";
@@ -265,7 +279,8 @@ class App extends Component {
       next: next + 1,
       guessed: false,
       answerChosen: false,
-      correctAnswer: this.getRandomBird(birdsData[next])
+      correctAnswer: this.getRandomBird(birdsData[next]),
+      currentScore: 5
     });
   };
 
@@ -278,7 +293,8 @@ class App extends Component {
       guessed,
       correctAnswer,
       currentAnswer,
-      gameEnded
+      gameEnded,
+      defaultStatus
     } = this.state;
 
     return (
@@ -311,7 +327,9 @@ class App extends Component {
                 <Answers
                   possibleAnswers={possibleAnswers}
                   onClick={this.chooseAnswer}
+                  defaultStatus={defaultStatus}
                   guessed={guessed}
+                  answerChosen={answerChosen}
                 />
               </aside>
               <aside className="current-answer">
@@ -336,4 +354,4 @@ class App extends Component {
 
 export default App;
 
-// TODO: 2) toggle answer status 3) responsive 6) custom player 7) custom bird data
+// TODO: 1) toggle answer status 2) responsive 3) custom player 4) custom bird data 5)check infinite score addition
