@@ -252,63 +252,63 @@ const birdsData = [
   [
     {
       id: 1,
-      name: "Орёл",
-      species: "Aquila nipalensis",
+      name: "Сапсан",
+      species: "Falco peregrinus",
       description:
-        "В древние времена орел был символом солнца. Орлы часто парят над землей, при этом скорость их перемещения может достигать 240 км/ч. Иллюзия медленного движения происходит из-за высоты полета – более 700 метров",
-      image: "https://live.staticflickr.com//4835//43867392960_7105d71e19.jpg",
+        "Эти соколы в основном питаются птицами средней величины, включая певчих птиц, куликов, водоплавающих и голубей. По приблизительным оценкам, почти одна пятая часть общей численности птичьего населения становится жертвой сапсана",
+      image: "//live.staticflickr.com/7641/26186128614_3d69063917_k.jpg",
       audio:
-        "https://www.xeno-canto.org/sounds/uploaded/KTBTZAHSXF/10_Aquila_nipalensis_al02D85.mp3"
+        "https://www.xeno-canto.org/sounds/uploaded/MMEJYLOPDO/XC493703-Pilgrimsfalk_04.mp3"
     },
     {
       id: 2,
-      name: "Коршун",
-      species: "Milvus migrans",
+      name: "Пустельга",
+      species: "Falco tinnunculus",
       description:
-        "Коршуны – крупные хищники, в высоту они достигают около полуметра, а вес взрослых особей достигает 1 кг. Крылья узкие и длинные, их размах составляет 1,5 м. Коршуны часто гнездятся большими стаями и даже образуют крупные колонии.",
-      image: "https://live.staticflickr.com//65535//48701190276_ee2a9ed594.jpg",
+        "Рацион питания пустельги состоит, в основном, из грызунов: мышей, полевок, землероек. Птица также может охотиться на летучих мышей, ящериц, лягушек, насекомых и дождевых червей. Нападает и на птиц, например, на воробьев и голубиных птенцов. Добычу пустельга убивает, ударив жертву клювом в затылок",
+      image: "//live.staticflickr.com/4307/35898298662_e7b84e29ce_h.jpg",
       audio:
-        "https://www.xeno-canto.org/sounds/uploaded/SDPCHKOHRH/XC485740-2019-06-22%20Selenga%20Milan%20brun%20cris%20de%20quemandage%203.mp3"
+        "https://www.xeno-canto.org/sounds/uploaded/NRUIFMFTXY/XC527307-Common%20Kestrel%20Jalman%202%20170602_3249.mp3"
     },
     {
       id: 3,
-      name: "Лунь",
-      species: "Circus cyaneus",
+      name: "Беркут",
+      species: "Aquila chrysaetos",
       description:
-        "Лунь – это небольшой сокол. Питается в основном мышевидными грызунами, основа его рациона – полёвки, хомяки, мыши. Оперение луня может быть пепельно-серым. С такой птицей связано сравнение «седой, как лунь».",
-      image: "https://live.staticflickr.com/65535/49322743903_32f3922d9e.jpg",
+        "На протяжении веков птицы этого вида были одними из самых почитаемых: их использовали в соколиной охоте. Евразийские подвиды использовались для охоты и умерщвления такой крупной добычи, как серые волки",
+      image: "//live.staticflickr.com/65535/49023316151_683aecbab9_k.jpg",
       audio:
-        "https://www.xeno-canto.org/sounds/uploaded/BLMSIUFTFU/XC513498-190709_1175_Cir.cyan-f.mp3"
+        "https://www.xeno-canto.org/sounds/uploaded/QLZIXALYUM/XC504831-Aquila%20chrysaetos.mp3"
     },
     {
       id: 4,
-      name: "Сокол",
-      species: "Falco peregrinus",
+      name: "Гарпия",
+      species: "Pithecophaga jefferyi",
       description:
-        "Латинское название сокола Falco произошло от слова «серп» из-за серповидной формы крыльев. Длинные и широкие крылья позволяют соколу высоко подниматься в небо и свободно парить. Скорость полёта сокола достигает 280-320 километров в час.",
-      image: "https://live.staticflickr.com//65535//49310710607_92a3a145a9.jpg",
+        "Южноамериканская гарпия является крупнейшим и наиболее мощным хищником, обитающим на территории Северной и Южной Америки, и одним из крупнейших сохранившихся видов орлов в мире",
+      image: "//live.staticflickr.com/567/23137654392_c6e1cb0ef0_b.jpg",
       audio:
-        "https://www.xeno-canto.org/sounds/uploaded/MMEJYLOPDO/XC496049-Pilgrimsfalk_06.mp3"
+        "https://www.xeno-canto.org/sounds/uploaded/GNYVMVEMZX/XC379328-PhilippineEagle_PieterPelser.mp3"
     },
     {
       id: 5,
-      name: "Ястреб",
-      species: "Accipiter gentilis",
+      name: "Белоплечий орлан",
+      species: "Haliaeetus pelagicus",
       description:
-        "Для всех ястребов характерны широкие и короткие крылья. Ещё один отличительный признак - белые «брови» над глазами. Славянские дружинники размещали изображение ястреба на своих знаменах, как символ отваги, мощи и безжалостности к врагам.",
-      image: "https://live.staticflickr.com//65535//49024617331_b9d0d2c9b3.jpg",
+        "Отличающаяся огромным жёлтым клювом, эта птица в основном охотится на рыб и водоплавающих птиц. Её любимым лакомством являются лосось и форель. В среднем, это самый тяжёлый орёл в мире: некоторые особи достигают 9 килограммов веса.",
+      image: "//live.staticflickr.com/3093/2792120970_fb6fd298bd_z.jpg",
       audio:
-        "https://www.xeno-canto.org/sounds/uploaded/MMEJYLOPDO/XC512740-Duvh%C3%B6k_09.mp3"
+        "https://www.xeno-canto.org/sounds/uploaded/LELYWQKUZX/XC489769-Haliaeetus%20pelagicus%20190719_002%2C25A1.MP3"
     },
     {
       id: 6,
-      name: "Филин",
-      species: "Bubo bubo",
+      name: "Кондор",
+      species: "Vultur gryphus",
       description:
-        "Полет филина бесшумный, зрение очень острое. Эти особенности делают птицу непревзойденным ночным охотником. У филина нет естественных врагов, ни один зверь не охотится на взрослых птиц. А вот на птенцов нападают лисы и волки.",
-      image: "https://live.staticflickr.com/65535/48137123012_393653c2e4.jpg",
+        "Достигая до 12 килограммов веса, калифорнийский кондор является крупнейшей североамериканской наземной птицей и одним из крупнейших хищников в мире",
+      image: "//live.staticflickr.com/8638/16065181483_63db309544_k.jpg",
       audio:
-        "https://www.xeno-canto.org/sounds/uploaded/WNLIDKJKXT/XC518386-sense%20t%C3%ADtol.mp3"
+        "https://www.xeno-canto.org/sounds/uploaded/DISAQFOZJP/CONDOR%20Andean_20_CRAR-UNORCH_Santiago_CH_SEP00_Guillermo%20Egli%20%28Egli%202002%29.mp3"
     }
   ],
   [

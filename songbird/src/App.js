@@ -24,7 +24,7 @@ const proxy = "https://cors-anywhere.herokuapp.com/";
 
 (function() {
   fetch(
-    `${proxy}https://www.xeno-canto.org/api/2/recordings?query=Lanius collurio`
+    `${proxy}https://www.xeno-canto.org/api/2/recordings?query=Vultur gryphus`
   )
     .then(res => res.json())
     .then(data => console.log(data.recordings[0].file));
@@ -60,15 +60,14 @@ const Answers = ({
   possibleAnswers,
   onClick,
   guessed,
+  statusRef,
   defaultStatus,
+  children,
   answerChosen
 }) => {
-  let statusClass;
-  guessed ? (statusClass = "correct") : (statusClass = "unactive");
-
   return (
     <Fragment>
-      <ul className="possible-answers">
+      <ul className="possible-answers" ref={statusRef}>
         {possibleAnswers.map(answer => {
           return (
             <li
@@ -78,8 +77,7 @@ const Answers = ({
               onClick={onClick}
               data-name={answer.name}
             >
-              <div className={statusClass}></div>
-              {/* <div className="unactive"></div> */}
+              <div className="unactive"></div>
               {answer.name}
             </li>
           );
@@ -183,11 +181,11 @@ class App extends Component {
     score: 0,
     currentScore: 5,
     next: 1,
-    activeCategory: categories[2], // change to 0
-    possibleAnswers: birdsData[2], // change to 0
+    activeCategory: categories[4], // change to 0
+    possibleAnswers: birdsData[4], // change to 0
     guessed: false,
     answerChosen: false,
-    correctAnswer: this.getRandomBird(birdsData[2]), // change to 0
+    correctAnswer: this.getRandomBird(birdsData[4]), // change to 0
     currentAnswer: null,
     gameEnded: false,
     defaultStatus: "unactive"
@@ -196,6 +194,7 @@ class App extends Component {
   answersSectionRef = React.createRef();
   nextLevelRef = React.createRef();
   correctBirdSectionRef = React.createRef();
+  answerStatusRef = React.createRef();
 
   guessed = (answer, current) => {
     return answer === current.name;
@@ -224,7 +223,7 @@ class App extends Component {
   changeAnswerStatus = e => {
     const { guessed, correctAnswer } = this.state;
 
-    // if (guessed) return;
+    if (guessed) return;
 
     const answer = e.target.dataset.name;
 
@@ -233,10 +232,16 @@ class App extends Component {
       : (e.target.firstChild.className = "wrong");
   };
 
+  resetStatus = () => {
+    const answers = this.answerStatusRef.current.children;
+
+    for (let i = 0; i < answers.length; i++) {
+      answers[i].firstChild.className = "unactive";
+    }
+  };
+
   clickSound = (answer, correct) => {
     const sound = new Audio();
-
-    // console.log(this.state.guessed);
 
     this.guessed(answer, correct)
       ? (sound.src = correctSound)
@@ -292,6 +297,8 @@ class App extends Component {
       correctAnswer: this.getRandomBird(birdsData[next]),
       currentScore: 5
     });
+
+    this.resetStatus();
   };
 
   render() {
@@ -340,6 +347,7 @@ class App extends Component {
                   defaultStatus={defaultStatus}
                   guessed={guessed}
                   answerChosen={answerChosen}
+                  statusRef={this.answerStatusRef}
                 />
               </aside>
               <aside className="current-answer">
