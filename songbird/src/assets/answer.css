@@ -43,6 +43,10 @@
 }
 
 @media screen and (max-width: 690px) {
+  .current-bird-section {
+    padding-top: 1rem;
+  }
+
   .bird-info {
     flex-direction: column;
   }
@@ -53,6 +57,7 @@
 
   .bird-placeholder {
     width: 25rem;
+    margin: 1rem 0;
   }
 
   .bird-names {
@@ -89,6 +94,7 @@
 
   .bird-placeholder {
     width: 25rem;
+    margin: 1rem 0;
   }
 
   .bird-names {

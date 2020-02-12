@@ -32,3 +32,10 @@
   margin: 0 2rem;
   height: 15rem;
 }
+
+@media screen and (max-width: 690px) {
+  .current-bird_name-sound h2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}

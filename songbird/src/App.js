@@ -49,11 +49,11 @@ class App extends Component {
     score: 0,
     currentScore: 5,
     next: 1,
-    activeCategory: categories[0], // change to 0
-    possibleAnswers: birdsData[0], // change to 0
+    activeCategory: categories[0],
+    possibleAnswers: birdsData[0],
     guessed: false,
     answerChosen: false,
-    correctAnswer: this.getRandomBird(birdsData[0]), // change to 0
+    correctAnswer: this.getRandomBird(birdsData[0]),
     currentAnswer: null,
     gameEnded: false
   };
@@ -120,30 +120,27 @@ class App extends Component {
     const answer = e.target.dataset.name;
     const { correctAnswer, guessed, currentScore } = this.state;
 
-    this.clickSound(answer, correctAnswer);
-
-    // if (guessed) return;
-
-    this.changeAnswerStatus(e);
-
     this.setState({
       answerChosen: true,
-      currentAnswer: this.state.possibleAnswers[e.target.id - 1],
-      currentScore: currentScore - 1,
-      guessed: true
+      currentAnswer: this.state.possibleAnswers[e.target.id - 1]
     });
 
-    // console.log(guessed);
+    if (!guessed) {
+      this.setState({
+        currentScore: currentScore - 1,
+        guessed: true
+      });
 
-    this.changeScore(answer, correctAnswer);
+      this.changeScore(answer, correctAnswer);
+      this.changeAnswerStatus(e);
+      this.clickSound(answer, correctAnswer);
+    }
   };
 
   showModalWindow = () => {
     this.setState({
       gameEnded: true
     });
-
-    // console.log(this.state.gameEnded);
 
     this.answersSectionRef.current.style.display = "none";
     this.correctBirdSectionRef.current.style.display = "none";
@@ -236,5 +233,3 @@ class App extends Component {
 }
 
 export default App;
-
-// TODO: 1) toggle answer status 3) custom bird data
