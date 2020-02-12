@@ -1,0 +1,39 @@
+.categories {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.category {
+  border-radius: 0.5rem;
+  list-style-type: none;
+  font-size: 1.4rem;
+  min-width: 15rem;
+  flex-grow: 1;
+  height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.active-category {
+  background-color: #c79a63;
+  border-radius: 0.5rem;
+  list-style-type: none;
+  font-size: 1.4rem;
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 15rem;
+  flex-grow: 1;
+}
+
+.active-cat {
+  background-color: #c79a63;
+}

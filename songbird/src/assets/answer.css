@@ -1,0 +1,110 @@
+.answer-placeholder {
+  font-size: 1.4rem;
+  margin-left: 1.2rem;
+  line-height: 2.2rem;
+}
+
+.current-answer_bird-name_ru {
+  font-size: 2.2rem;
+  margin: 0;
+  border-bottom: 0.1rem solid #505050;
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+.current-answer_bird-name_latin {
+  border-bottom: 0.1rem solid #505050;
+  width: 100%;
+  padding-bottom: 0.8rem;
+  font-size: 1.8rem;
+  margin: 0.5rem 0 0 0;
+  font-weight: lighter;
+  margin-bottom: 2rem;
+}
+
+.bird-info {
+  display: flex;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.latin {
+  font-size: 1rem;
+}
+
+.bird-names {
+  width: 50%;
+  margin-left: 0.5rem;
+}
+
+.bird-description {
+  margin: 2rem 2rem 0 2rem;
+  font-size: 1.4rem;
+}
+
+@media screen and (max-width: 690px) {
+  .current-bird-section {
+    padding-top: 1rem;
+  }
+
+  .bird-info {
+    flex-direction: column;
+  }
+
+  .answers-section {
+    height: 77rem;
+  }
+
+  .bird-placeholder {
+    width: 25rem;
+    margin: 1rem 0;
+  }
+
+  .bird-names {
+    margin-left: 2rem;
+    margin-top: 1rem;
+  }
+
+  .bird-description {
+    padding-bottom: 1rem;
+  }
+
+  .answers {
+    height: 30rem;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .answers-section {
+    height: 79rem;
+  }
+
+  .current-answer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 47rem;
+  }
+
+  .bird-info {
+    display: flex;
+    flex-direction: column;
+    height: 28.5rem;
+    justify-content: center;
+  }
+
+  .bird-placeholder {
+    width: 25rem;
+    margin: 1rem 0;
+  }
+
+  .bird-names {
+    width: 90%;
+    margin-left: 2rem;
+    margin-top: 1rem;
+  }
+
+  .bird-description {
+    margin-bottom: 2rem;
+  }
+}

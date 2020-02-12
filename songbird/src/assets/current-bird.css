@@ -1,0 +1,41 @@
+.current-bird-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.current-bird_name-sound {
+  width: 70%;
+  height: 85%;
+  margin: 0 6rem 0 0;
+}
+
+.current-bird-sound {
+  width: 100%;
+  height: 4rem;
+}
+
+.current-bird-sound:focus {
+  outline: 0;
+}
+
+.current-bird_name-sound h2 {
+  font-size: 3rem;
+  margin-top: 0;
+  width: 100%;
+  border-bottom: 0.1rem solid #505050;
+  padding-bottom: 1rem;
+}
+
+.bird-placeholder {
+  border-radius: 0.5rem;
+  margin: 0 2rem;
+  height: 15rem;
+}
+
+@media screen and (max-width: 690px) {
+  .current-bird_name-sound h2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
