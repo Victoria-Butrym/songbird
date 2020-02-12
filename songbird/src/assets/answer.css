@@ -76,13 +76,14 @@
 
 @media screen and (max-width: 570px) {
   .answers-section {
-    height: 76rem;
+    height: 79rem;
   }
 
   .current-answer {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 47rem;
   }
 
   .bird-info {

@@ -1,13 +1,6 @@
 import React, { Fragment } from "react";
 
-const Answers = ({
-  possibleAnswers,
-  onClick,
-  guessed,
-  statusRef,
-  children,
-  answerChosen
-}) => {
+const Answers = ({ possibleAnswers, onClick, statusRef }) => {
   return (
     <Fragment>
       <ul className="possible-answers" ref={statusRef}>

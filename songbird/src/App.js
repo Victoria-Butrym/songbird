@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import "./App.css";
-import "./header/header.css";
+import "./assets/header.css";
 import "./assets/categories.css";
 import "./assets/answer.css";
 import "./assets/modal-window.css";
