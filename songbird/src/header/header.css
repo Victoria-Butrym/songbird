@@ -79,7 +79,7 @@
   margin: 2.5rem 0;
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 690px) {
   .current-bird-section {
     display: flex;
     flex-direction: column;
@@ -98,7 +98,7 @@
 }
 
 .answers {
-  width: 54rem;
+  width: 30%;
   height: 100%;
   background-color: #333;
   border-radius: 0.5rem;
@@ -106,7 +106,7 @@
 }
 
 .current-answer {
-  width: 53rem;
+  width: 67.5%;
   height: 100%;
   background-color: #333;
   border-radius: 0.5rem;
@@ -180,9 +180,12 @@
 }
 
 @media screen and (max-width: 1169px) {
-  .current-answer,
+  .current-answer {
+    width: 67%;
+  }
+
   .answers {
-    width: 48.5%;
+    width: 30%;
   }
 }
 

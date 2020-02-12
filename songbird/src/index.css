@@ -32,3 +32,9 @@ code {
     font-size: 7px;
   }
 }
+
+/* @media screen and (max-width: 340px) {
+  html {
+    font-size: 5px;
+  }
+} */

@@ -1,78 +1,39 @@
-/* .rhap_container {
-  width: 100%;
-  height: 4rem;
-  display: flex;
-  justify-content: space-between;
-}
-
-.rhap_main-controls {
-  display: flex;
-}
-
-.rhap_main-controls-button:hover {
-  transition: 0.2s;
-  border: 0.2rem solid #c79a63;
-  color: #c79a63;
-  cursor: pointer;
-}
-
-.rhap_main-controls-button:focus {
-  outline: 0;
-}
-
-.rhap_controls-section {
-  order: -1;
-  width: 10rem;
-} */
-
-/* .rhap_volume-button {
-  display: none;
-}
-
-.rhap_main-controls-button {
-  background-color: transparent;
-  border-radius: 50%;
-  border: 0.2rem solid #9e6c3e;
-  color: #9e6c3e;
-  padding: 0;
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.rhap-progress-container {
-  display: flex;
-  background-color: #fff;
-  width: 100%;
-  height: 0.2rem;
-}
-
-.rhap_time {
-  font-size: 1.3rem;
-}
-
-.rhap_additional-controls {
-  display: none;
-}
-
-.toggle-play-button {
-  background-color: red !important;
-} */
-
 .current-bird-sound {
   background-color: transparent;
 }
 
 .rhap_container {
-  box-shadow: 0;
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
+  padding: 0;
+  box-shadow: none;
 }
 
 .rhap_progress-section {
   width: 92%;
+  margin-left: 1rem;
+}
+
+@media screen and (max-width: 450px) {
+  .rhap_progress-section {
+    font-size: 1rem;
+    width: 80%;
+    margin-right: 3rem;
+  }
+
+  .rhap_play-pause-button {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .rhap_play-pause-button svg {
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 .rhap_time {
@@ -110,4 +71,15 @@
 .rhap_forward-button,
 .rhap_rewind-button {
   display: none;
+}
+
+@media screen and (max-width: 360px) {
+  .rhap_progress-section {
+    width: 80%;
+    margin-right: 8rem;
+  }
+
+  .rhap_container {
+    min-width: 100%;
+  }
 }

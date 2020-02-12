@@ -14,11 +14,21 @@ import wrongSound from "./data/sounds/wrong.mp3";
 import correctSound from "./data/sounds/correct.mp3";
 
 import Score from "./header/score";
-import birdsData from "./data/birds";
+import birdsData from "./data/birds-custom";
 import categories from "./data/categories";
 import Logo from "./header/logo";
 import AnswerPlaceholder from "./placeholders/answer-placeholder";
 import BirdImagePlaceholder from "./placeholders/bird-image";
+
+const proxy = "https://cors-anywhere.herokuapp.com/";
+
+(function() {
+  fetch(
+    `${proxy}https://www.xeno-canto.org/api/2/recordings?query=Lanius collurio`
+  )
+    .then(res => res.json())
+    .then(data => console.log(data.recordings[0].file));
+})();
 
 const Categories = ({ activeCategory }) => {
   return (
@@ -54,8 +64,7 @@ const Answers = ({
   answerChosen
 }) => {
   let statusClass;
-  // guessed ? (statusClass = "correct") : (statusClass = "unactive");
-  // !answerChosen ? (statusClass = "unactive") : return;
+  guessed ? (statusClass = "correct") : (statusClass = "unactive");
 
   return (
     <Fragment>
@@ -69,7 +78,7 @@ const Answers = ({
               onClick={onClick}
               data-name={answer.name}
             >
-              <div className={defaultStatus}></div>
+              <div className={statusClass}></div>
               {/* <div className="unactive"></div> */}
               {answer.name}
             </li>
@@ -140,6 +149,7 @@ const CurrentAnswerData = ({ currentAnswer }) => {
           <AudioPlayer
             className="current-bird-sound"
             src={currentAnswer.audio}
+            autoPlayAfterSrcChange={false}
             controls
           />
         </aside>
@@ -173,11 +183,11 @@ class App extends Component {
     score: 0,
     currentScore: 5,
     next: 1,
-    activeCategory: categories[0],
-    possibleAnswers: birdsData[0],
+    activeCategory: categories[2], // change to 0
+    possibleAnswers: birdsData[2], // change to 0
     guessed: false,
     answerChosen: false,
-    correctAnswer: this.getRandomBird(birdsData[0]),
+    correctAnswer: this.getRandomBird(birdsData[2]), // change to 0
     currentAnswer: null,
     gameEnded: false,
     defaultStatus: "unactive"
@@ -354,4 +364,4 @@ class App extends Component {
 
 export default App;
 
-// TODO: 1) toggle answer status 2) responsive 3) custom player 4) custom bird data 5)check infinite score addition
+// TODO: 1) toggle answer status 2) responsive 3) custom bird data

@@ -42,9 +42,36 @@
   font-size: 1.4rem;
 }
 
+@media screen and (max-width: 690px) {
+  .bird-info {
+    flex-direction: column;
+  }
+
+  .answers-section {
+    height: 77rem;
+  }
+
+  .bird-placeholder {
+    width: 25rem;
+  }
+
+  .bird-names {
+    margin-left: 2rem;
+    margin-top: 1rem;
+  }
+
+  .bird-description {
+    padding-bottom: 1rem;
+  }
+
+  .answers {
+    height: 30rem;
+  }
+}
+
 @media screen and (max-width: 570px) {
-  .answer-section {
-    height: 75rem;
+  .answers-section {
+    height: 76rem;
   }
 
   .current-answer {
@@ -66,6 +93,8 @@
 
   .bird-names {
     width: 90%;
+    margin-left: 2rem;
+    margin-top: 1rem;
   }
 
   .bird-description {
