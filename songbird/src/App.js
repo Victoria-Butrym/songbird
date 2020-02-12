@@ -23,6 +23,7 @@ import Answers from "./main/answers";
 import Categories from "./header/categories";
 import ModalWindow from "./main/modal-window";
 import NextLevel from "./main/next-level";
+import NameAndSound from "./main/name-and-sound";
 
 const proxy = "https://cors-anywhere.herokuapp.com/";
 
@@ -123,19 +124,19 @@ const proxy = "https://cors-anywhere.herokuapp.com/";
 //   );
 // };
 
-const NameAndSound = ({ guessed, correctAnswer }) => {
-  return (
-    <aside className="current-bird_name-sound">
-      {guessed ? <h2>{correctAnswer.name}</h2> : <h2>******</h2>}
-      <AudioPlayer
-        className="current-bird-sound"
-        src={correctAnswer.audio}
-        autoPlayAfterSrcChange={false}
-        controls
-      />
-    </aside>
-  );
-};
+// const NameAndSound = ({ guessed, correctAnswer }) => {
+//   return (
+//     <aside className="current-bird_name-sound">
+//       {guessed ? <h2>{correctAnswer.name}</h2> : <h2>******</h2>}
+//       <AudioPlayer
+//         className="current-bird-sound"
+//         src={correctAnswer.audio}
+//         autoPlayAfterSrcChange={false}
+//         controls
+//       />
+//     </aside>
+//   );
+// };
 
 const CurrentAnswerData = ({ currentAnswer }) => {
   return (
