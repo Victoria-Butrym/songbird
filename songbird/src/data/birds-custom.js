@@ -314,63 +314,63 @@ const birdsData = [
   [
     {
       id: 1,
-      name: "Альбатрос",
-      species: "Diomedea exulans",
+      name: "Глухарь",
+      species: "Tetrao urogallus",
       description:
-        "Альбатрос - самая крупная летающая птица в мире. Размах крыльев достигает три с половиной, вес - десять килограммов. Большую часть жизни альбатросы проводят в воздухе, покрывая над океанскими просторами огромные расстояния",
-      image: "https://live.staticflickr.com/7557/16260253965_8e9430cb66.jpg",
+        "Глухарь не часто использует свои крылья по назначению – летает он редко. А если и полетит куда-нибудь, то как правило, поднимается не выше деревьев",
+      image: "//live.staticflickr.com/5567/31674528235_753ebcd7b6_b.jpg",
       audio:
-        "https://www.xeno-canto.org/sounds/uploaded/WOEAFQRMUD/XC293087-Diomedea%20exulans151120_T254.mp3"
+        "https://www.xeno-canto.org/sounds/uploaded/MMEJYLOPDO/XC490642-Tj%C3%A4der_03.mp3"
     },
     {
       id: 2,
-      name: "Олуша",
-      species: "Sula nebouxii",
+      name: "Клуша",
+      species: "Larus fuscus",
       description:
-        "Особенностью голубоногой олуши является не только насыщенный ярко-синий цвет лапок, но еще и тот факт, что они очень теплые. В то время как другие виды птиц греют кладки своим телом, голубоногая олуша делает это с помощью лапок",
-      image: "https://live.staticflickr.com/800/40645471394_4422e69ed8.jpg",
+        "Птица отличается длинными крыльями, что придает элегантность ее полету. Летает клуша хорошо, за пищей отправляется далеко от берега, в открытое море. Во время пения птица вначале опускает голову внизу, после чего поднимает ее резко вверх",
+      image: "//live.staticflickr.com/805/40140511965_131e74ef44_k.jpg",
       audio:
-        "https://www.xeno-canto.org/sounds/uploaded/YHKQPPJDVP/XC411507-171217_1491%20BF%20Booby%205ft%20IDLP%201230%20mp3%20amp.mp3"
+        "https://www.xeno-canto.org/sounds/uploaded/SDPCHKOHRH/XC487330-Goeland%20brun%20alarme%20en%20vol.mp3"
     },
     {
       id: 3,
-      name: "Буревестник",
-      species: "Puffinus griseus",
+      name: "Гага",
+      species: "Somateria mollissima",
       description:
-        "Размеры буревестниковых разные. Самые маленькие из них в длину составляют до 25 см, самые большие - до 1 м, при размахе крыльев около 2 м. Существует поверье, что появление буревестника в воздухе предвещает бурю, о чем говорит само название птицы.",
-      image: "https://live.staticflickr.com//607//22136056020_935cb113f9.jpg",
+        "Среда обитания гаги – прибрежные морские воды. Птицы летают низко над водой, они отлично плавают и ныряют на глубину до 5 метров. Но такая глубина, для этих уток не предел, они могут погружаться на глубину до 20 метров. Гага может находиться под водой до 3-х минут",
+      image: "//live.staticflickr.com/7817/47484016001_9db90feab5_k.jpg",
       audio:
-        "https://www.xeno-canto.org/sounds/uploaded/XQEVNREHJY/SHEARWATER%20Christmas%20Island_04_Motu_Isla%20de%20Pascua-Easter%20Island_CH_4MAR03_Alvaro%20Jaramillo.mp3"
+        "https://www.xeno-canto.org/sounds/uploaded/SDPCHKOHRH/XC487987-2018-07-25%20Blonduos%20180725%20Eider%20a%20duvet%20divers%20grognement%20%286%29.mp3"
     },
     {
       id: 4,
-      name: "Пеликан",
-      species: "Pelecanus",
+      name: "Тупик",
+      species: "Fratercula arctica",
       description:
-        "Пеликаны — обитатели морей и рек. Ходят они неуклюже, но хорошо летают и плавают. Питаются в основном рыбой, устраивают коллективные охоты — выстроившись полукругом хлопают по воде крыльями и клювами и вытесняют напуганную рыбу на мелководье.",
-      image: "https://live.staticflickr.com/7885/46523771945_9496c2a191.jpg",
+        "Тупики быстро ходят по земле и даже могут бежать, но делают это вразвалку. Птицы отлично приспособлены к плаванию и нырянию, дыхание под водой задерживают на минуту. Летают тупики низко над водой и достаточно быстро (развивают скорость около 80 км/ч",
+      image: "//live.staticflickr.com/4746/26583468508_2806555fe4_h.jpg",
       audio:
-        "https://www.xeno-canto.org/sounds/uploaded/XAMHIHFTZG/XC331138-call1.mp3"
+        "https://www.xeno-canto.org/sounds/uploaded/SDPCHKOHRH/XC487912-2018-07-23%20Latrabjarg%20180721%20Macareux%20moine%20chant%20%286%29.mp3"
     },
     {
       id: 5,
-      name: "Пингвин",
-      species: "Aptenodytes forsteri",
+      name: "Хохотунья",
+      species: "Larus cachinnans",
       description:
-        "Самец императорского пингвина достигает роста 130 см, его масса может приближаться к 50 кг. Из всех современных пингвинов этот вид – самый крупный. Питание пингвина состоит из рыбы, кальмаров и криля. Охотятся птицы в океане большими группами.",
-      image: "https://live.staticflickr.com/5202/5252413926_8e013a3efd.jpg",
+        "Этот вид, как правило, очень шумный и хорошо известен своим громким смехом. Хохотуньи общаются как с помощью звука, так и с помощью зыка тела",
+      image: "//live.staticflickr.com/8119/28624722394_4949bf4d3c_k.jpg",
       audio:
-        "https://www.xeno-canto.org/sounds/uploaded/OOECIWCSWV/XC449827-LS100829%20King%20Penguin%20call%20A.mp3"
+        "https://www.xeno-canto.org/sounds/uploaded/MDYOYLDBVM/XC508259-boththth.mp3"
     },
     {
       id: 6,
-      name: "Чайка",
-      species: "Larus argentatus",
+      name: "Камнешарка",
+      species: "Arenaria interpres",
       description:
-        "Чайки населяют берега морей, озёр, рек, водохранилищ, болот, часто гнездятся на островах. С конца прошлого века чайки стали появляться в крупных городах, где устраивает гнёзда на крышах зданий. Все чайки ведут колониальный образ жизни.",
-      image: "https://live.staticflickr.com/65535/48577115317_7034201dde.jpg",
+        "Своё название камнешарка получила из-за способа добычи пропитания – она переворачивает все прибрежные камешки, ракушки и другие небольшие предметы. За эту особенность птица получила своё имя и в английском языке (Ruddy Turnstone), и в немецком (Steinwalzer)",
+      image: "//live.staticflickr.com/6232/6427489323_bde6b7ffa5_n.jpg",
       audio:
-        "https://www.xeno-canto.org/sounds/uploaded/VOLIQOYWKG/XC501190-190801_06.50h_zilvermeeuw_duinen%20van%20goeree_roep_2ex_overvliegend_gezien_.mp3"
+        "https://www.xeno-canto.org/sounds/uploaded/SDPCHKOHRH/XC526793-2019-10-06%20Sein%20Tourneierre%20a%20collier%20divers%20cris.mp3"
     }
   ]
 ];

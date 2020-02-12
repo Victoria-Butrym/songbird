@@ -19,12 +19,13 @@ import categories from "./data/categories";
 import Logo from "./header/logo";
 import AnswerPlaceholder from "./placeholders/answer-placeholder";
 import BirdImagePlaceholder from "./placeholders/bird-image";
+import Answers from "./main/answers";
 
 const proxy = "https://cors-anywhere.herokuapp.com/";
 
 (function() {
   fetch(
-    `${proxy}https://www.xeno-canto.org/api/2/recordings?query=Vultur gryphus`
+    `${proxy}https://www.xeno-canto.org/api/2/recordings?query=Arenaria interpres`
   )
     .then(res => res.json())
     .then(data => console.log(data.recordings[0].file));
@@ -56,36 +57,35 @@ const Categories = ({ activeCategory }) => {
   );
 };
 
-const Answers = ({
-  possibleAnswers,
-  onClick,
-  guessed,
-  statusRef,
-  defaultStatus,
-  children,
-  answerChosen
-}) => {
-  return (
-    <Fragment>
-      <ul className="possible-answers" ref={statusRef}>
-        {possibleAnswers.map(answer => {
-          return (
-            <li
-              className="possible-answer"
-              key={answer.id}
-              id={answer.id}
-              onClick={onClick}
-              data-name={answer.name}
-            >
-              <div className="unactive"></div>
-              {answer.name}
-            </li>
-          );
-        })}
-      </ul>
-    </Fragment>
-  );
-};
+// const Answers = ({
+//   possibleAnswers,
+//   onClick,
+//   guessed,
+//   statusRef,
+//   children,
+//   answerChosen
+// }) => {
+//   return (
+//     <Fragment>
+//       <ul className="possible-answers" ref={statusRef}>
+//         {possibleAnswers.map(answer => {
+//           return (
+//             <li
+//               className="possible-answer"
+//               key={answer.id}
+//               id={answer.id}
+//               onClick={onClick}
+//               data-name={answer.name}
+//             >
+//               <div className="unactive"></div>
+//               {answer.name}
+//             </li>
+//           );
+//         })}
+//       </ul>
+//     </Fragment>
+//   );
+// };
 
 const ModalWindow = ({ score, onClick }) => {
   let congratsMessage;
@@ -181,14 +181,13 @@ class App extends Component {
     score: 0,
     currentScore: 5,
     next: 1,
-    activeCategory: categories[4], // change to 0
-    possibleAnswers: birdsData[4], // change to 0
+    activeCategory: categories[5], // change to 0
+    possibleAnswers: birdsData[5], // change to 0
     guessed: false,
     answerChosen: false,
-    correctAnswer: this.getRandomBird(birdsData[4]), // change to 0
+    correctAnswer: this.getRandomBird(birdsData[5]), // change to 0
     currentAnswer: null,
-    gameEnded: false,
-    defaultStatus: "unactive"
+    gameEnded: false
   };
 
   answersSectionRef = React.createRef();
@@ -196,11 +195,11 @@ class App extends Component {
   correctBirdSectionRef = React.createRef();
   answerStatusRef = React.createRef();
 
-  guessed = (answer, current) => {
+  isGuessed = (answer, current) => {
     return answer === current.name;
   };
 
-  isGuessed = (answer, correct) => {
+  changeScore = (answer, correct) => {
     const { currentScore, score } = this.state;
 
     if (currentScore < 0) return;
@@ -227,7 +226,7 @@ class App extends Component {
 
     const answer = e.target.dataset.name;
 
-    this.guessed(answer, correctAnswer)
+    this.isGuessed(answer, correctAnswer)
       ? (e.target.firstChild.className = "correct")
       : (e.target.firstChild.className = "wrong");
   };
@@ -243,7 +242,7 @@ class App extends Component {
   clickSound = (answer, correct) => {
     const sound = new Audio();
 
-    this.guessed(answer, correct)
+    this.isGuessed(answer, correct)
       ? (sound.src = correctSound)
       : (sound.src = wrongSound);
     sound.play();
@@ -266,9 +265,9 @@ class App extends Component {
       guessed: true
     });
 
-    console.log(guessed);
+    // console.log(guessed);
 
-    this.isGuessed(answer, correctAnswer);
+    this.changeScore(answer, correctAnswer);
   };
 
   showModalWindow = () => {
@@ -284,9 +283,9 @@ class App extends Component {
 
   nextCategory = () => {
     const { next, guessed } = this.state;
-    if (next === 6) this.showModalWindow();
+    if (next === categories.length) this.showModalWindow();
 
-    if (next === 6 || !guessed) return;
+    if (next === categories.length || !guessed) return;
 
     this.setState({
       possibleAnswers: birdsData[next],
@@ -344,7 +343,6 @@ class App extends Component {
                 <Answers
                   possibleAnswers={possibleAnswers}
                   onClick={this.chooseAnswer}
-                  defaultStatus={defaultStatus}
                   guessed={guessed}
                   answerChosen={answerChosen}
                   statusRef={this.answerStatusRef}
