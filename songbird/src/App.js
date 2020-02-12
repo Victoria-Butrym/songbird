@@ -21,6 +21,8 @@ import AnswerPlaceholder from "./placeholders/answer-placeholder";
 import BirdImagePlaceholder from "./placeholders/bird-image";
 import Answers from "./main/answers";
 import Categories from "./header/categories";
+// import ModalWindow from "./main/modal-window";
+import NextLevel from "./main/next-level";
 
 const proxy = "https://cors-anywhere.herokuapp.com/";
 
@@ -109,17 +111,17 @@ const ModalWindow = ({ score, onClick }) => {
   );
 };
 
-const NextLevel = ({ onClick, guessed, text }) => {
-  return guessed ? (
-    <button onClick={onClick} className="active-next">
-      {text}
-    </button>
-  ) : (
-    <button onClick={onClick} className="next">
-      {text}
-    </button>
-  );
-};
+// const NextLevel = ({ onClick, guessed, text }) => {
+//   return guessed ? (
+//     <button onClick={onClick} className="active-next">
+//       {text}
+//     </button>
+//   ) : (
+//     <button onClick={onClick} className="next">
+//       {text}
+//     </button>
+//   );
+// };
 
 const NameAndSound = ({ guessed, correctAnswer }) => {
   return (
