@@ -190,63 +190,63 @@ const birdsData = [
   [
     {
       id: 1,
-      name: "Жаворонок",
-      species: "Alauda arvensis",
+      name: "Кедровка",
+      species: "Nucifraga caryocatactes macella",
       description:
-        "Жаворонки — перелетные птицы. С начала сентября они отлетают на юг. Возвращаются они в начале марта, независимо от того, сошел снег или нет. По прилету жаворонков определяли наступление весны и пору, когда пора пахать землю.",
-      image: "https://live.staticflickr.com/65535/47105096764_f751fba568.jpg",
+        "Расклевывая шишку кедра, птица способна унести за один раз до 100 кедровых орешков, набивая ими объемистый подъязычный мешок. Известен случай, когда удалось поймать кедровку со 165 орехами в горловом мешке",
+      image: "//live.staticflickr.com/1970/43268317670_580d344ace_h.jpg",
       audio:
-        "https://www.xeno-canto.org/sounds/uploaded/ZNCDXTUOFL/XC462158-Skowronek_Alauda_arvensis_Poland_Jarek_Matusiak_%20-006%20skowronek%20%282%29.mp3"
+        "https://www.xeno-canto.org/sounds/uploaded/PTYTXQRLSZ/XC516305-RDBPARA-501_2020-11-03_09h17_SpottedNutcracker_calls.mp3"
     },
     {
       id: 2,
-      name: "Соловей",
-      species: "Luscinia luscinia",
+      name: "Тетерев",
+      species: "Lyrurus tetrix",
       description:
-        "Соловьи поют с начала мая и до конца лета. Каждая песня соловья состоит из 12 повторяющихся элементов, которые еще называют коленами. Кроме собственных трелей, соловьи легко и хорошо перенимают пение других птиц.",
-      image: "https://live.staticflickr.com/7605/27669397735_f3c21758f2.jpg",
+        "Тетерев способен к быстрому полету. Более того, он делает это с легкостью. При полете птицы часто взмахивают крыльями (которые, кстати, сильно изогнуты",
+      image: "//live.staticflickr.com/863/41802663042_74fe937a67_b.jpg",
       audio:
-        "https://www.xeno-canto.org/sounds/uploaded/HILVWSADVL/XC513809-R07_0052%20Thrush%20Nightingale%20Snipe.mp3"
+        "https://www.xeno-canto.org/sounds/uploaded/MMEJYLOPDO/XC483900-Orre_05.mp3"
     },
     {
       id: 3,
-      name: "Скворец",
-      species: "Sturnus vulgaris",
+      name: "Рябчик",
+      species: "Tetrastes bonasia",
       description:
-        "Скворцы - перелётные птицы. Синхронный перелет больших стай скворцов называется мурмурацией. Это красивое и завораживающее явление – множество птиц будто танцуют в воздухе, образуя замысловатые фигуры, которые уменьшаются и увеличиваются в небе.",
-      image: "https://live.staticflickr.com/65535/49357593971_9509fe1d7c.jpg",
+        "Рябчик в царстве птиц, как заяц в мире млекопитающих. Очень осторожен и всегда внимателен. Не так просто подойти незамеченным к рябчику даже на расстояние оружейного выстрела",
+      image: "//live.staticflickr.com/8769/28366090643_474123cefb_h.jpg",
       audio:
-        "https://www.xeno-canto.org/sounds/uploaded/GYAUIPUVNM/XC515519-2020.01.01_17.24_01.MP3"
+        "https://www.xeno-canto.org/sounds/uploaded/MMEJYLOPDO/XC516990-J%C3%A4rpe_14.mp3"
     },
     {
       id: 4,
-      name: "Иволга",
-      species: "Oriolus oriolus",
+      name: "Цапля",
+      species: "Tigrisoma lineatum",
       description:
-        "Мелодичность голоса иволги сравнивают со звучанием флейты. Человеку сложно разглядеть иволгу, так как она обитает высоко на деревьях. Иволга не только очень красивая, но и  полезная птица. Она уничтожает ядовитых гусениц, которых не поедают другие птицы.",
-      image: "https://live.staticflickr.com/65535/47102184004_58a93380b9.jpg",
+        "Цапля – очень узнаваемая птица, и спутать её с какой-нибудь другой практически невозможно. Длинный прямой клюв, не менее длинная, причудливо изогнутая шея, голенастые ноги… Цапля часто фигурирует в народных сказках и других формах творчества, обычно выступая в роли положительного персонажа",
+      image: "//live.staticflickr.com/65535/48272086752_f7434b6e81_h.jpg",
       audio:
-        "https://www.xeno-canto.org/sounds/uploaded/GYAUIPUVNM/XC491801-2019.07.07_06.28_01.mp3"
+        "https://www.xeno-canto.org/sounds/uploaded/JQSYKZHEMB/XC458068-TigrisomaTape13SJPoriah%C3%BA.mp3"
     },
     {
       id: 5,
-      name: "Свиристель",
-      species: "Bombycilla garrulus",
+      name: "Ястребиная сова",
+      species: "Surnia ulula",
       description:
-        "У свиристели очень цепкие коготки, что помогает птице удерживаться на ветках и склевывать ягоды, которые труднее всего достать. В период ухаживаний самец предлагает самке ягоду или другое угощение. Если самка его принимает, то птицы создают пару.",
-      image: "https://live.staticflickr.com//65535//49367433842_1b06da0e6b.jpg",
+        "Охотится ястребиная сова всегда неподалёку от места своего обитания на открытых местностях. Во время охоты птица не сидит долго на одном месте. У ястребиной совы отличные зрение и слух, а чтобы схватить грызуна, она даже может погрузиться в снег",
+      image: "//live.staticflickr.com/4594/27448593059_2692e49de8_h.jpg",
       audio:
-        "https://www.xeno-canto.org/sounds/uploaded/ZNCDXTUOFL/XC517421-AB-004%20%282%29%20jemio%C5%82uszka.mp3"
+        "https://www.xeno-canto.org/sounds/uploaded/FYLAMAAOPI/XC523753-hokuggla.mp3"
     },
     {
       id: 6,
-      name: "Щегол",
-      species: "Carduelis carduelis",
+      name: "Крапивник",
+      species: "Xenicus gilviventris",
       description:
-        "Щеглы поют красиво и мелодично. И в природе, и в неволе они щебечут почти круглый год. В пении щегла различают более 20 переливчатых трелей. Щеглы привыкают к людям, и даже могут возвратиться к хозяину после того, как их выпустили на волю",
-      image: "https://live.staticflickr.com//65535//49366257253_db3ce48b9a.jpg",
+        "Эти птички – круглые пушистые шарики – очень подвижны и на удивление громко и звонко поют. Их размеры не превышают размеров домового воробья. Длина тела в среднем 10 см, вес около 12 г, размах крыльев – до 20 см",
+      image: "//live.staticflickr.com/65535/49024473068_49bbc5e30c_h.jpg",
       audio:
-        "https://www.xeno-canto.org/sounds/uploaded/VOLIQOYWKG/XC489265-190724_07.58h_putter_biesbosch_%20boompjes%20langs%20open%20water_zang_1ex_ad_niet%20gezien_.mp3"
+        "https://www.xeno-canto.org/sounds/uploaded/CMCMWNRQOB/XC516109-NIA%201912281207%20Rock%20Wren.mp3"
     }
   ],
   [

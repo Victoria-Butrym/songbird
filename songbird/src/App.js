@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import AudioPlayer from "react-h5-audio-player";
 
 import "./App.css";
 import "./header/header.css";
@@ -26,16 +25,6 @@ import NextLevel from "./main/next-level";
 import NameAndSound from "./main/name-and-sound";
 import CurrentAnswerData from "./main/current-answer-data";
 
-const proxy = "https://cors-anywhere.herokuapp.com/";
-
-(function() {
-  fetch(
-    `${proxy}https://www.xeno-canto.org/api/2/recordings?query=Arenaria interpres`
-  )
-    .then(res => res.json())
-    .then(data => console.log(data.recordings[0].file));
-})();
-
 class App extends Component {
   getRandomBird = category => {
     return category[Math.floor(Math.random() * category.length)];
@@ -60,11 +49,11 @@ class App extends Component {
     score: 0,
     currentScore: 5,
     next: 1,
-    activeCategory: categories[5], // change to 0
-    possibleAnswers: birdsData[5], // change to 0
+    activeCategory: categories[0], // change to 0
+    possibleAnswers: birdsData[0], // change to 0
     guessed: false,
     answerChosen: false,
-    correctAnswer: this.getRandomBird(birdsData[5]), // change to 0
+    correctAnswer: this.getRandomBird(birdsData[0]), // change to 0
     currentAnswer: null,
     gameEnded: false
   };
@@ -188,8 +177,7 @@ class App extends Component {
       guessed,
       correctAnswer,
       currentAnswer,
-      gameEnded,
-      defaultStatus
+      gameEnded
     } = this.state;
 
     return (
@@ -249,4 +237,4 @@ class App extends Component {
 
 export default App;
 
-// TODO: 1) toggle answer status 2) responsive 3) custom bird data
+// TODO: 1) toggle answer status 3) custom bird data
