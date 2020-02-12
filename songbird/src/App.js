@@ -20,6 +20,7 @@ import Logo from "./header/logo";
 import AnswerPlaceholder from "./placeholders/answer-placeholder";
 import BirdImagePlaceholder from "./placeholders/bird-image";
 import Answers from "./main/answers";
+import Categories from "./header/categories";
 
 const proxy = "https://cors-anywhere.herokuapp.com/";
 
@@ -31,31 +32,31 @@ const proxy = "https://cors-anywhere.herokuapp.com/";
     .then(data => console.log(data.recordings[0].file));
 })();
 
-const Categories = ({ activeCategory }) => {
-  return (
-    <nav className="header-nav">
-      <ul className="categories">
-        {categories.map(category => {
-          if (category === activeCategory) {
-            return (
-              <li
-                className="category active-cat"
-                key={categories.indexOf(category)}
-              >
-                {category}
-              </li>
-            );
-          }
-          return (
-            <li className="category" key={categories.indexOf(category)}>
-              {category}
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
-  );
-};
+// const Categories = ({ activeCategory }) => {
+//   return (
+//     <nav className="header-nav">
+//       <ul className="categories">
+//         {categories.map(category => {
+//           if (category === activeCategory) {
+//             return (
+//               <li
+//                 className="category active-cat"
+//                 key={categories.indexOf(category)}
+//               >
+//                 {category}
+//               </li>
+//             );
+//           }
+//           return (
+//             <li className="category" key={categories.indexOf(category)}>
+//               {category}
+//             </li>
+//           );
+//         })}
+//       </ul>
+//     </nav>
+//   );
+// };
 
 // const Answers = ({
 //   possibleAnswers,
