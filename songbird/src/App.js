@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from "react";
-import AudioPlayer from "react-h5-audio-player";
+import React, { Component } from "react";
+// import AudioPlayer from "react-h5-audio-player";
 
 import "./App.css";
 import "./header/header.css";
@@ -24,6 +24,7 @@ import Categories from "./header/categories";
 import ModalWindow from "./main/modal-window";
 import NextLevel from "./main/next-level";
 import NameAndSound from "./main/name-and-sound";
+import CurrentAnswerData from "./main/current-answer-data";
 
 const proxy = "https://cors-anywhere.herokuapp.com/";
 
@@ -34,132 +35,6 @@ const proxy = "https://cors-anywhere.herokuapp.com/";
     .then(res => res.json())
     .then(data => console.log(data.recordings[0].file));
 })();
-
-// const Categories = ({ activeCategory }) => {
-//   return (
-//     <nav className="header-nav">
-//       <ul className="categories">
-//         {categories.map(category => {
-//           if (category === activeCategory) {
-//             return (
-//               <li
-//                 className="category active-cat"
-//                 key={categories.indexOf(category)}
-//               >
-//                 {category}
-//               </li>
-//             );
-//           }
-//           return (
-//             <li className="category" key={categories.indexOf(category)}>
-//               {category}
-//             </li>
-//           );
-//         })}
-//       </ul>
-//     </nav>
-//   );
-// };
-
-// const Answers = ({
-//   possibleAnswers,
-//   onClick,
-//   guessed,
-//   statusRef,
-//   children,
-//   answerChosen
-// }) => {
-//   return (
-//     <Fragment>
-//       <ul className="possible-answers" ref={statusRef}>
-//         {possibleAnswers.map(answer => {
-//           return (
-//             <li
-//               className="possible-answer"
-//               key={answer.id}
-//               id={answer.id}
-//               onClick={onClick}
-//               data-name={answer.name}
-//             >
-//               <div className="unactive"></div>
-//               {answer.name}
-//             </li>
-//           );
-//         })}
-//       </ul>
-//     </Fragment>
-//   );
-// };
-
-// const ModalWindow = ({ score, onClick }) => {
-//   let congratsMessage;
-
-//   score === 30
-//     ? (congratsMessage = "Абсолютная победа!")
-//     : (congratsMessage = "Поздравляем!");
-
-//   return (
-//     <Fragment>
-//       <section className="modal-window">
-//         <h2 className="congrats">{congratsMessage}</h2>
-//         <span className="result">
-//           Вы прошли викторину и набрали <strong>{score}</strong> из{" "}
-//           <strong>30</strong> баллов!
-//         </span>
-//         <NextLevel guessed={true} text="Играть снова" onClick={onClick} />
-//       </section>
-//     </Fragment>
-//   );
-// };
-
-// const NextLevel = ({ onClick, guessed, text }) => {
-//   return guessed ? (
-//     <button onClick={onClick} className="active-next">
-//       {text}
-//     </button>
-//   ) : (
-//     <button onClick={onClick} className="next">
-//       {text}
-//     </button>
-//   );
-// };
-
-// const NameAndSound = ({ guessed, correctAnswer }) => {
-//   return (
-//     <aside className="current-bird_name-sound">
-//       {guessed ? <h2>{correctAnswer.name}</h2> : <h2>******</h2>}
-//       <AudioPlayer
-//         className="current-bird-sound"
-//         src={correctAnswer.audio}
-//         autoPlayAfterSrcChange={false}
-//         controls
-//       />
-//     </aside>
-//   );
-// };
-
-const CurrentAnswerData = ({ currentAnswer }) => {
-  return (
-    <Fragment>
-      <section className="bird-info">
-        <BirdImagePlaceholder picture={currentAnswer.image} />
-        <aside className="bird-names">
-          <h3 className="current-answer_bird-name_ru">{currentAnswer.name}</h3>
-          <h4 className="current-answer_bird-name_latin">
-            {currentAnswer.species}
-          </h4>
-          <AudioPlayer
-            className="current-bird-sound"
-            src={currentAnswer.audio}
-            autoPlayAfterSrcChange={false}
-            controls
-          />
-        </aside>
-      </section>
-      <p className="bird-description">{currentAnswer.description}</p>
-    </Fragment>
-  );
-};
 
 class App extends Component {
   getRandomBird = category => {
