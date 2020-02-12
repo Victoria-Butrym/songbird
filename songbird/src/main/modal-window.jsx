@@ -1,5 +1,7 @@
 import React, { Fragment } from "react";
 
+import NextLevel from "../main/next-level";
+
 const ModalWindow = ({ score, onClick }) => {
   let congratsMessage;
 

@@ -21,7 +21,7 @@ import AnswerPlaceholder from "./placeholders/answer-placeholder";
 import BirdImagePlaceholder from "./placeholders/bird-image";
 import Answers from "./main/answers";
 import Categories from "./header/categories";
-// import ModalWindow from "./main/modal-window";
+import ModalWindow from "./main/modal-window";
 import NextLevel from "./main/next-level";
 
 const proxy = "https://cors-anywhere.herokuapp.com/";
@@ -90,26 +90,26 @@ const proxy = "https://cors-anywhere.herokuapp.com/";
 //   );
 // };
 
-const ModalWindow = ({ score, onClick }) => {
-  let congratsMessage;
+// const ModalWindow = ({ score, onClick }) => {
+//   let congratsMessage;
 
-  score === 30
-    ? (congratsMessage = "Абсолютная победа!")
-    : (congratsMessage = "Поздравляем!");
+//   score === 30
+//     ? (congratsMessage = "Абсолютная победа!")
+//     : (congratsMessage = "Поздравляем!");
 
-  return (
-    <Fragment>
-      <section className="modal-window">
-        <h2 className="congrats">{congratsMessage}</h2>
-        <span className="result">
-          Вы прошли викторину и набрали <strong>{score}</strong> из{" "}
-          <strong>30</strong> баллов!
-        </span>
-        <NextLevel guessed={true} text="Играть снова" onClick={onClick} />
-      </section>
-    </Fragment>
-  );
-};
+//   return (
+//     <Fragment>
+//       <section className="modal-window">
+//         <h2 className="congrats">{congratsMessage}</h2>
+//         <span className="result">
+//           Вы прошли викторину и набрали <strong>{score}</strong> из{" "}
+//           <strong>30</strong> баллов!
+//         </span>
+//         <NextLevel guessed={true} text="Играть снова" onClick={onClick} />
+//       </section>
+//     </Fragment>
+//   );
+// };
 
 // const NextLevel = ({ onClick, guessed, text }) => {
 //   return guessed ? (
